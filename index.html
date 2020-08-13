@@ -24,7 +24,7 @@
 			let inputData = document.getElementById('inData').value.replace(new RegExp('\n', 'g'), '').split(',');
 			let outData = document.getElementById('outData');
 			let numberData = document.getElementById('elemLength');
-			let errMess = document.getElementById('err')
+			let errMess = document.getElementById('err');
 			outData.value = "";
 				if (inputData.every(cond => !isNaN(cond)&&cond!='')) { 
 				outData.value = mergeArray(inputData.map(fil => parseInt(fil)));
@@ -32,7 +32,7 @@
 				errMess.textContent = "";
 				}
 				else {
-				document.getElementById('err').textContent =  "Invalid data";
+				errMess.textContent =  "Invalid data";
 				numberData.textContent = '';}	
 			}
 		
