@@ -1,0 +1,64 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merge Sort</title>    
+<style>
+	h1 {
+		text-align: center;}
+	button {
+	display: block;}
+	#err {
+	color: red;}
+</style>
+<body>
+	<h1>Merge Sort</h1>
+		<div>
+			<h2>Input array to sort:</h2>
+			<textarea id = "inData"rows = "10" cols ="150"placeholder="Please input data"></textarea>
+			<button onclick="start()">Sort</button>
+		</div>
+		<div>
+			<h2>Sorted:</h2>
+			<textarea id ="outData"rows = "10" cols ="150"></textarea>
+		</div>
+		<p>Number of elements (n):<span id="elemLength"></span></p>
+		<p>Complexity O(n): log(n)</p>
+		<p><span id="err"></span></p>
+	<script>
+		function start() {
+				
+			let inputData = document.getElementById('inData').value.replace(new RegExp('\n', 'g'), '').split(',');
+			let outData = document.getElementById('outData');
+			let numberData = document.getElementById('elemLength');
+			let errMess = document.getElementById('err')
+			outData.value = "";
+				if (inputData.every(cond => !isNaN(cond)&&cond!='')) { 
+				outData.value = mergeArray(inputData.map(fil => parseInt(fil)));
+				numberData.textContent = inputData.length;
+				errMess.textContent = "";
+				}
+				else {
+				document.getElementById('err').textContent =  "Invalid data";
+				numberData.textContent = '';}	
+			}
+		
+	function mergeArray (arr) {
+  	if (arr.length == 1)
+  		return arr;
+		let center = Math.round(arr.length/2),
+            first = mergeArray(arr.slice(0,center)),
+            second = mergeArray(arr.slice(center)),
+  			sortedArray = [];
+   			for (;first.length>0&&second.length>0;){
+        		first[0]<second[0] ? sortedArray.push(...first.splice(0,1)):	
+									sortedArray.push(...second.splice(0,1));
+        			}
+		return [...sortedArray,...first,...second];
+    }			
+
+    </script>
+	
+</body>
+
+</html>
