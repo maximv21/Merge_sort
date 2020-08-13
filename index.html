@@ -4,19 +4,16 @@
 <head>
     <title>Merge Sort</title>    
 <style>
-	h1 {
-		text-align: center;}
-	button {
-	display: block;}
-	#err {
-	color: red;}
+	
+	
+	
 </style>
 <body>
-	<h1>Merge Sort</h1>
+	<h1 style="text-align: center">Merge Sort</h1>
 		<div>
 			<h2>Input array to sort:</h2>
 			<textarea id = "inData"rows = "10" cols ="150"placeholder="Please input data"></textarea>
-			<button onclick="start()">Sort</button>
+			<button onclick="start()"style = "display: block">Sort</button>
 		</div>
 		<div>
 			<h2>Sorted:</h2>
@@ -24,7 +21,7 @@
 		</div>
 		<p>Number of elements (n):<span id="elemLength"></span></p>
 		<p>Complexity O(n): log(n)</p>
-		<p><span id="err"></span></p>
+		<p><span id="err"style="color: red"></span></p>
 	<script>
 		function start() {
 				
